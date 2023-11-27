@@ -62,6 +62,25 @@
             background-color: #45a049;
         }
 
+        .voltar-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: black;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 3px #999;
+            cursor: pointer;
+        }
+
+        .calculate-button:hover {
+            background-color: #111111;
+        }
+
     </style>
 </head>
 <body>
@@ -90,9 +109,13 @@
             <input type="number" id="as" name="as" required>
         </div>
 
+        <button class="voltar-button" onclick="voltar()">Voltar</button>
         <button class="calculate-button" onclick="calcularMedia()">Calcular</button>
 
         <script>
+            function voltar() {
+                window.location = "/NotasIBMEC";
+            }
             function calcularMedia() {
         // Obtenha os valores dos inputs
         var ac = parseFloat(document.getElementById("ac").value);
