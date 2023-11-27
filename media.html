@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Média</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .calculator-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .calculate-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4caf50;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 3px #999;
+            cursor: pointer;
+        }
+
+        .calculate-button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <div class="calculator">
+        <h1>Calcular Média</h1>
+
+        <div class="input-group">
+            <label for="ac">AC:</label>
+            <input type="number" id="ac" name="ac" required>
+        </div>
+
+        <div class="input-group">
+            <label for="p1">P1:</label>
+            <input type="number" id="p1" name="p1" required>
+        </div>
+
+        <div class="input-group">
+            <label for="p2">P2:</label>
+            <input type="number" id="p2" name="p2" required>
+        </div>
+
+        <div class="input-group">
+            <label for="as">AS:</label>
+            <input type="number" id="as" name="as" required>
+        </div>
+
+        <button class="calculate-button" onclick="calcularMedia()">Calcular</button>
+
+        <script>
+            function calcularMedia() {
+        // Obtenha os valores dos inputs
+        var ac = parseFloat(document.getElementById("ac").value);
+        var p1 = parseFloat(document.getElementById("p1").value);
+        var p2 = parseFloat(document.getElementById("p2").value);
+        var as = parseFloat(document.getElementById("as").value);
+
+        // Verifique se a nota da AS é maior que P1 ou P2
+        if (as > p1 || as > p2) {
+            // Substitua a menor nota (se as é maior que ambas)
+            if (p1 <= p2) {
+                p1 = as;
+            } else {
+                p2 = as;
+            }
+        }
+
+        // Calcule a média usando a fórmula especificada
+        var media = ac * 0.2 + p1 * 0.4 + p2 * 0.4;
+
+        // Exiba o resultado (pode ajustar conforme necessário)
+        alert("A média é: " + media.toFixed(2));
+    }
+        </script>
+
+    </div>
+</div>
+
+</body>
+</html>

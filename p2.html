@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular P2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .calculator-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .calculate-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4caf50;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 3px #999;
+            cursor: pointer;
+        }
+
+        .calculate-button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <div class="calculator">
+        <h1>Calcular P2</h1>
+
+        <div class="input-group">
+            <label for="ac">AC:</label>
+            <input type="number" id="ac" name="ac" required>
+        </div>
+
+        <div class="input-group">
+            <label for="p1">P1:</label>
+            <input type="number" id="p1" name="p1" required>
+        </div>
+
+        <button class="calculate-button" onclick="calcularP2()">Calcular</button>
+
+
+<script>
+    function calcularP2() {
+        // Obtenha os valores dos inputs
+        var ac = parseFloat(document.getElementById("ac").value);
+        var p1 = parseFloat(document.getElementById("p1").value);
+
+        // Nota mínima necessária para ser aprovado
+        var notaMinimaAprovacao = 7;
+
+        // Calcule a nota necessária na P2 para atingir a média desejada (7)
+        // A fórmula da média é AC * 0.2 + P1 * 0.4 + P2 * 0.4
+        // Rearranjando a fórmula, temos P2 = (7 - AC * 0.2 - P1 * 0.4) / 0.4
+        var p2 = (notaMinimaAprovacao - ac * 0.2 - p1 * 0.4) / 0.4;
+
+        // Verifique se a nota necessária na P2 está dentro do intervalo válido (0 a 10)
+        if (p2 >= 0 && p2 <= 10) {
+            // Exiba o resultado (pode ajustar conforme necessário)
+            alert("Você precisa tirar pelo menos " + p2.toFixed(2) + " na P2 para ser aprovado com média 7.");
+        } else {
+            alert("Não é possível atingir a média desejada com as notas fornecidas, você precisaria tirar " + p2.toFixed(2));
+        }
+    }
+</script>
+
+
+    </div>
+</div>
+
+</body>
+</html>
